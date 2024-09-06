@@ -54,3 +54,22 @@ Route::get('/about', function () {
     return 'Nama saya '.$name;
 });
 
+Route::get('/hello', [App\Http\Controllers\WelcomeController::class, 'hello']);
+Route::get('/', [App\Http\Controllers\PageController::class, 'index']);
+Route::get('/about', [App\Http\Controllers\PageController::class, 'about']);
+Route::get('/articles/{id}', [App\Http\Controllers\PageController::class, 'articles']);
+
+use App\Http\Controllers\PhotoController;
+Route::resource('photos', App\Http\Controllers\PhotoController::class)->only(['index', 'show']);
+
+Route::resource('photos', App\Http\Controllers\PhotoController::class)->except([
+    'create', 'store', 'update', 'destroy'
+   ]);
+
+Route::get('/greeting', function () {
+return view('hello', ['name' => 'Angelia Anna']);
+});
+
+Route::get('/greeting', [App\Http\Controllers\WelcomeController::class, 
+'greeting']);
+
