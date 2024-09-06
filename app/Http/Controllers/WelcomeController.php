@@ -8,11 +8,11 @@ class WelcomeController extends Controller
 {
     public function hello() {
         return 'Hello World';
-       }
-    
+    }
+
     public function greeting(){
         return view('blog.hello')
-        ->with('name','Angelia Anna Putri Razali')
-        ->with('occupation','Astronaut');
-        }
+        ->with('name','Angelia Anna')
+        ->with('occuption','MABA 22');
+    }
 }
